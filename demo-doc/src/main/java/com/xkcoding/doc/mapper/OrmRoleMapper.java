@@ -2,6 +2,7 @@ package com.xkcoding.doc.mapper;
 
 import com.xkcoding.doc.entity.OrmRoleEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
 * @author chaoj
@@ -9,6 +10,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 * @createDate 2024-12-19 19:30:55
 * @Entity com.xkcoding.doc.entity.OrmRoleEntity
 */
+
+@Mapper
 public interface OrmRoleMapper extends BaseMapper<OrmRoleEntity> {
 
 }
