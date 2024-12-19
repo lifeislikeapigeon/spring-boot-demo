@@ -12,7 +12,7 @@ import java.util.Date;
  * @TableName orm_user
  */
 @TableName(value ="orm_user")
-public class OrmUser implements Serializable {
+public class OrmUserEntity implements Serializable {
     /**
      * 主键
      */
@@ -63,6 +63,11 @@ public class OrmUser implements Serializable {
      * 上次更新时间
      */
     private Date lastUpdateTime;
+
+    /**
+     * 逻辑删除标记 1-已删除 0-未删除
+     */
+    private Integer deleteFlag;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
@@ -207,6 +212,20 @@ public class OrmUser implements Serializable {
         this.lastUpdateTime = lastUpdateTime;
     }
 
+    /**
+     * 逻辑删除标记 1-已删除 0-未删除
+     */
+    public Integer getDeleteFlag() {
+        return deleteFlag;
+    }
+
+    /**
+     * 逻辑删除标记 1-已删除 0-未删除
+     */
+    public void setDeleteFlag(Integer deleteFlag) {
+        this.deleteFlag = deleteFlag;
+    }
+
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -218,7 +237,7 @@ public class OrmUser implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        OrmUser other = (OrmUser) that;
+        OrmUserEntity other = (OrmUserEntity) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
             && (this.getPassword() == null ? other.getPassword() == null : this.getPassword().equals(other.getPassword()))
@@ -228,7 +247,8 @@ public class OrmUser implements Serializable {
             && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
             && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
             && (this.getLastLoginTime() == null ? other.getLastLoginTime() == null : this.getLastLoginTime().equals(other.getLastLoginTime()))
-            && (this.getLastUpdateTime() == null ? other.getLastUpdateTime() == null : this.getLastUpdateTime().equals(other.getLastUpdateTime()));
+            && (this.getLastUpdateTime() == null ? other.getLastUpdateTime() == null : this.getLastUpdateTime().equals(other.getLastUpdateTime()))
+            && (this.getDeleteFlag() == null ? other.getDeleteFlag() == null : this.getDeleteFlag().equals(other.getDeleteFlag()));
     }
 
     @Override
@@ -245,6 +265,7 @@ public class OrmUser implements Serializable {
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
         result = prime * result + ((getLastLoginTime() == null) ? 0 : getLastLoginTime().hashCode());
         result = prime * result + ((getLastUpdateTime() == null) ? 0 : getLastUpdateTime().hashCode());
+        result = prime * result + ((getDeleteFlag() == null) ? 0 : getDeleteFlag().hashCode());
         return result;
     }
 
@@ -264,6 +285,7 @@ public class OrmUser implements Serializable {
         sb.append(", createTime=").append(createTime);
         sb.append(", lastLoginTime=").append(lastLoginTime);
         sb.append(", lastUpdateTime=").append(lastUpdateTime);
+        sb.append(", deleteFlag=").append(deleteFlag);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
