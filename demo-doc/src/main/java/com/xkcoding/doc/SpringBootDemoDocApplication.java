@@ -1,6 +1,7 @@
 package com.xkcoding.doc;
 
 import cn.hutool.core.util.StrUtil;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,25 +18,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @date Created in 2018-09-28 14:49
  */
 @SpringBootApplication
-@RestController
-@EnableSwagger2
 public class SpringBootDemoDocApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SpringBootDemoDocApplication.class, args);
     }
 
-    /**
-     * Hello，World
-     *
-     * @param who 参数，非必须
-     * @return Hello, ${who}
-     */
-    @GetMapping("/hello")
-    public String sayHello(@RequestParam(required = false, name = "who") String who) {
-        if (StrUtil.isBlank(who)) {
-            who = "World";
-        }
-        return StrUtil.format("Hello, {}!", who);
-    }
 }
