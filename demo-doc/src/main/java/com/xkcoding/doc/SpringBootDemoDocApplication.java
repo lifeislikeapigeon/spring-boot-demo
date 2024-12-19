@@ -1,4 +1,4 @@
-package com.xkcoding.helloworld;
+package com.xkcoding.doc;
 
 import cn.hutool.core.util.StrUtil;
 import org.springframework.boot.SpringApplication;
@@ -17,10 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @SpringBootApplication
 @RestController
-public class SpringBootDemoHelloworldApplication {
+public class SpringBootDemoDocApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootDemoHelloworldApplication.class, args);
+        SpringApplication.run(SpringBootDemoDocApplication.class, args);
     }
 
     /**

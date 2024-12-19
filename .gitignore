@@ -38,3 +38,6 @@ logs/
 
 ### VS CODE ###
 .vscode/
+
+### fastRequest ###
+.fastRequest
