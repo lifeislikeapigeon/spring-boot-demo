@@ -88,6 +88,7 @@
     <hutool.version>5.4.5</hutool.version>
     <guava.version>29.0-jre</guava.version>
     <user.agent.version>1.20</user.agent.version>
+    <swagger.version>2.9.2</swagger.version>
   </properties>
 
   <repositories>
@@ -135,6 +136,12 @@
         <groupId>eu.bitwalker</groupId>
         <artifactId>UserAgentUtils</artifactId>
         <version>${user.agent.version}</version>
+      </dependency>
+      <!-- swagger-ui -->
+      <dependency>
+        <groupId>io.springfox</groupId>
+        <artifactId>springfox-swagger2</artifactId>
+        <version>${swagger.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
